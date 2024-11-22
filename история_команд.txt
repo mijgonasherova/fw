@@ -1,0 +1,1000 @@
+  453  mkdir lesson5
+  454  cd lesson5
+  455  docker images
+  456  docker-compose up
+  457  cd ~/Docker_Compose_Swarm
+  458  cd prod
+  459  nano docker-compose.yml
+  460  cd ..
+  461  cd lab
+  462  nano docker-compose.yml
+  463  cd ..
+  464  docker-compose up
+  465  mkdir -p ~/Docker_Compose_Swarm/{dev,prod,lab}
+  466  cd ~Docker_Compose_Swarm
+  467  cd ~/Docker_Compose_Swarm
+  468  version: '3.8'
+  469  cd dev
+  470  nano docker-compose.yml
+  471  docker-compose up -d
+  472  docker ps
+  473  docker --version
+  474  sudo apt update
+  475  sudo apt install -y curl
+  476  sudo add-apt-repository --remove ppa:docker/stable
+  477  sudo add-apt-repository --remove ppa:nginx/stable
+  478  ls /etc/apt/sources.list.d/
+  479  sudo rm /etc/apt/sources.list.d/docker.list
+  480  sudo rm /etc/apt/sources.list.d/nginx.list
+  481  sudo apt update
+  482  sudo apt install docker-compose
+  483  sudo chmod +x /usr/local/bin/docker-compose
+  484  dpkg -l | grep docker-compose
+  485  which docker-compose
+  486  docker-compose --version
+  487  docker-compose up -d
+  488  docker ps
+  489  nano docker-compose.yml
+  490  docker-compose up -d
+  491  nano docker-compose.yml
+  492  docker-compose up -d
+  493  docker ps
+  494  cd prod
+  495  cd ..
+  496  cd prod
+  497  nano docker-compose.yml
+  498  docker-compose up -d
+  499  nano docker-compose.yml
+  500  docker-compose up -d
+  501  nano docker-compose.yml
+  502  docker-compose up -d
+  503  nano docker-compose.yml
+  504  docker-compose up -d
+  505  cd ..
+  506  cd dev
+  507  docker-compose up -d
+  508  cd ..
+  509  cd prod
+  510  docker-compose up -d
+  511  nano docker-compose.yml
+  512  docker-compose down
+  513  nano docker-compose.yml
+  514  docker-compose up -d
+  515  mkdir -p ~/Docker_Compose_Swarm/prod/html
+  516  cd ..
+  517  mkdir -p ~/Docker_Compose_Swarm/prod/html
+  518  echo '<h1>Hello from Production!</h1>' > ~/Docker_Compose_Swarm/prod/html/index.html
+  519  cd ~/Docker_Compose_Swarm/prod
+  520  docker-compose up -d
+  521  cd ..
+  522  cd lab
+  523  nano docker-compose.yml
+  524  docker-compose up -d
+  525  docker ps
+  526  curl http://localhost:8082
+  527  ls -l ~/Docker_Compose_Swarm/lab/html
+  528  echo '<h1>Hello from Lab!</h1>' > ~/Docker_Compose_Swarm/lab/html/index.html
+  529  ls -l ~/Docker_Compose_Swarm/lab/html
+  530  docker-compose up -d
+  531  nano docker-compose.yml
+  532  curl http://localhost:8082
+  533  curl http://localhost:8081
+  534  curl http://localhost:8080
+  535  ls ~/Docker_Compose_Swarm/dev/html
+  536  mkdir -p ~/Docker_Compose_Swarm/dev/html
+  537  echo '<h1>Hello from Dev!</h1>' > ~/Docker_Compose_Swarm/dev/html/index.html
+  538  ls ~/Docker_Compose_Swarm/dev/html
+  539  nano docker-compose.yml
+  540  cd ..
+  541  cd lab
+  542  nano docker-compose.yml
+  543  cd ..
+  544  cd dev
+  545  nano docker-compose.yml
+  546  docker-compose up -d
+  547  docker ps
+  548  docker-compose up -d
+  549  nano docker-compose.yml
+  550  docker-compose up -d
+  551  nano docker-compose.yml
+  552  docker-compose up -d
+  553  docker-compose down
+  554  docker-compose up -d
+  555  docker ps
+  556  curl http://localhost:8080
+  557  curl http://localhost:8081
+  558  curl http://localhost:8082
+  559  nano docker-compose.yml
+  560  cd ..
+  561  cd prod
+  562  nano docker-compose.yml
+  563  cd ..
+  564  docker ps
+  565  FROM nginx:alpine
+  566  COPY ./html /usr/share/nginx/html
+  567  # lab/Dockerfile
+  568  FROM nginx:alpine
+  569  COPY ./html /usr/share/nginx/html
+  570  cd dev
+  571  nano Dockerfile
+  572  cd html
+  573  nano index.html
+  574  cd ..
+  575  cd lab
+  576  nano Dockerfile
+  577  cd html
+  578  nano index.html
+  579  cd ~/Docker_Compose_Swarm/dev
+  580  docker build -t dev-nginx .
+  581  docker run -d -p 8081:80 dev-nginx
+  582  docker ps
+  583  curl http://localhost:8081
+  584  cd ~/Docker_Compose_Swarm
+  585  docker-compose up -d
+  586  ls ~/Docker_Compose_Swarm
+  587  cd ~/Docker_Compose_Swarm/dev
+  588  docker-compose.yml
+  589  nano docker-compose.yml
+  590  docker-compose up -d
+  591  cd ..
+  592  cd prod
+  593  nano docker-compose.yml
+  594  docker-compose up -d
+  595  cd ..
+  596  cd lab
+  597  nano docker-compose.yml
+  598  docker-compose up -d
+  599  cd ..
+  600  docker-compose up -d
+  601  docker ps
+  602  nano Dockerfile
+  603  cd dev
+  604  nano Dockerfile
+  605  cd html
+  606  nano Dockerfile
+  607  nano index.html
+  608  cd ..
+  609  cd Dockerfile
+  610  nano Dockerfile
+  611  cd ..
+  612  cd lab
+  613  nano Dockerfile
+  614  cd html
+  615  nano index.html
+  616  cd ..
+  617  cd dev
+  618  docker build -t dev-nginx .
+  619  docker run -d -p 8081:80 dev-nginx
+  620  cd ..
+  621  cd lab
+  622  docker build -t dev-nginx .
+  623  docker ps
+  624  cd ..
+  625  docker run -d -p 8083:80 dev-nginx
+  626  docker stop prod_web_1
+  627  docker run -d -p 8081:80 dev-nginx
+  628  curl http://localhost:8083
+  629  curl http://localhost:8081
+  630  docker ps
+  631  mkdir -p ~/Docker_Compose_Swarm/{dev,prod,lab}
+  632  cd dev
+  633  nano docker-compose.yml
+  634  cd ..
+  635  cd prod
+  636  nano docker-compose.yml
+  637  cd ..
+  638  cd lab
+  639  nano docker-compose.yml
+  640  cd ..
+  641  mkdir ~/Docker_Compose_Swarm/dev/html
+  642  mkdir ~/Docker_Compose_Swarm/prod/html
+  643  mkdir ~/Docker_Compose_Swarm/lab/html
+  644  \
+  645  mkdir ~/Docker_Compose_Swarm/dev/html
+  646  ls ~/Docker_Compose_Swarm
+  647  rm ~/Docker_Compose_Swarm/dev/html/index.html
+  648  rm ~/Docker_Compose_Swarm/prod/html/index.html
+  649  rm ~/Docker_Compose_Swarm/lab/html/index.html
+  650  echo "<h1>Hello from Dev</h1>" > ~/Docker_Compose_Swarm/dev/html/index.html
+  651  echo "<h1>Hello from Prod</h1>" > ~/Docker_Compose_Swarm/prod/html/index.html
+  652  echo "<h1>Hello from Lab</h1>" > ~/Docker_Compose_Swarm/lab/html/index.html
+  653  cd ~/Docker_Compose_Swarm/dev
+  654  docker-compose up -d
+  655  cd ~/Docker_Compose_Swarm/prod
+  656  docker-compose up -d
+  657  cd ~/Docker_Compose_Swarm/lab
+  658  docker-compose up -d
+  659  docker --version
+  660  docker-compose --version
+  661  sudo apt-get install docker-compose
+  662  Bind for 0.0.0.0:8081 failed: port is already allocated
+  663  docker ps
+  664  docker stop <d4486b8c5a77>
+  665  docker stop d4486b8c5a77
+  666  docker stop e46379319854
+  667  docker stop 136c5adbcf98
+  668  docker stop 29bb0a483a93
+  669  docker ps
+  670  mkdir ~/Docker_Compose_Swarm/dev/html
+  671  mkdir ~/Docker_Compose_Swarm/prod/html
+  672  mkdir ~/Docker_Compose_Swarm/lab/html
+  673  docker ps
+  674  cd ..
+  675  docker-compose down
+  676  docker system prune -f  # Удалит неиспользуемые контейнеры, сети и образы
+  677  cd ~/Docker_Compose_Swarm/dev
+  678  docker-compose up -d
+  679  cd ~/Docker_Compose_Swarm/prod
+  680  docker-compose up -d
+  681  cd ~/Docker_Compose_Swarm/lab
+  682  docker-compose up -d
+  683  cd ..
+  684  cd ~/Docker_Compose_Swarm/dev
+  685  docker-compose up -d
+  686  cd ~/Docker_Compose_Swarm/prod
+  687  docker-compose up -d
+  688  cd ~/Docker_Compose_Swarm/lab
+  689  docker-compose up -d
+  690  curl http://localhost:8080
+  691  curl http://localhost:8081
+  692  curl http://localhost:8082
+  693  cd ..
+  694  curl http://localhost:8082
+  695  curl http://localhost:8081
+  696  curl http://localhost:8082
+  697  curl http://localhost:8080
+  698  curl http://localhost:8081
+  699  curl http://localhost:8082
+  700  docker ps
+  701  cd dev
+  702  nano Dockerfile
+  703  cd ~/Docker_Compose_Swarm/dev
+  704  docker build -t dev-nginx .
+  705  docker run -d -p 8080:80 dev-nginx
+  706  cd ~/Docker_Compose_Swarm/lab
+  707  docker build -t lab-nginx .
+  708  docker run -d -p 8082:80 lab-nginx
+  709  docker ps
+  710  curl http://localhost:8080
+  711  curl http://localhost:8082
+  712  cd ..
+  713  docker stop dev_web_1
+  714  docker ps
+  715  docker start dev_web_1
+  716  docker ps
+  717  docker stop prod_web_1
+  718  docker start prod_web_1
+  719  docker ps
+  720  curl http://localhost:8083  # для dev-nginx
+  721  curl http://localhost:8084  # для lab-nginx
+  722  curl http://localhost:8082  # для lab-nginx
+  723  curl http://localhost:8081  # для lab-nginx
+  724  curl http://localhost:8080  # для lab-nginx
+  725  cd dev
+  726  docker build -t dev-nginx .
+  727  cd ~/Docker_Compose_Swarm/dev
+  728  docker build -t dev-nginx .
+  729  docker run -d -p 8080:80 dev-nginx
+  730  cd ..
+  731  docker stop dev_web_1
+  732  cd ~/Docker_Compose_Swarm/dev
+  733  docker build -t dev-nginx .
+  734  docker run -d -p 8080:80 dev-nginx
+  735  cd ..
+  736  docker ps
+  737  docker stop frosty_mcclintock
+  738  cd ~/Docker_Compose_Swarm/lab
+  739  docker build -t lab-nginx .
+  740  docker run -d -p 8082:80 lab-nginx
+  741  docker ps
+  742  cd ~/Docker_Compose_Swarm/dev
+  743  docker-compose up -d
+  744  cd ~/Docker_Compose_Swarm/prod
+  745  docker-compose up -d
+  746  cd ~/Docker_Compose_Swarm/lab
+  747  docker-compose up -d
+  748  cd ~/Docker_Compose_Swarm/lab
+  749  docker build -t lab-nginx .
+  750  docker run -d -p 8082:80 lab-nginx
+  751  cd ~/Docker_Compose_Swarm/dev
+  752  docker build -t dev-nginx .
+  753  docker run -d -p 8080:80 dev-nginx
+  754  docker ps
+  755  curl http://localhost:8080
+  756  curl http://localhost:8082
+  757  docker ps
+  758  journalctl -u docker.service
+  759  cd ..
+  760  sudo service docker status
+  761  sudo systemctl restart docker
+  762  sudo netstat -tuln | grep LISTEN
+  763  sudo ss -tuln | grep LISTEN
+  764  sudo netstat -tuln | grep LISTEN
+  765  sudo systemctl restart docker
+  766  sudo netstat -tuln | grep LISTEN
+  767  docker-compose down
+  768  docker-compose up -d
+  769  curl http://127.0.0.1:8080
+  770  curl http://127.0.0.1:8082
+  771  sudo ufw disable
+  772  curl http://127.0.0.1:8082
+  773  curl http://127.0.0.1:8080
+  774  docker logs lab_web_1
+  775  docker logs dev_web_1
+  776  cd dev
+  777  nano docker-compose.yml
+  778  cd dev
+  779  nano docker-compose.yml
+  780  docker ps -a
+  781  docker-compose down
+  782  docker system prune -f
+  783  docker-compose up -d
+  784  docker ps
+  785  curl http://127.0.0.1:8080
+  786  cd ~/Docker_Compose_Swarm/dev
+  787  docker-compose up -d
+  788  cd ~/Docker_Compose_Swarm/prod
+  789  docker-compose up -d
+  790  cd ~/Docker_Compose_Swarm/lab
+  791  docker-compose up -d
+  792  docker ps
+  793  server {
+  794  listen 80 default_server;
+  795  listen [::]:80 default_server;
+  796  root /var/www/html;
+  797  index index.html index.htm index.nginx-debian.html;
+  798  server_name _;
+  799  location / {
+  800  try_files $uri $uri/ =404;
+  801  }
+  802  sudo nginx -t
+  803  sudo systemctl reload nginx
+  804  sudo apachectl -t
+  805  apt install libapache2-mod-php8.1 php8.1
+  806  apt install php8.1-zip php8.1-imagick
+  807  mkdir ~/var/www/html
+  808  mkdir~/var/www/html
+  809  apt install php8.1-fpm
+  810  apt install mysql-server-8.0
+  811  sudo mysql
+  812  apt install curl
+  813  wget https://yastatic.net/jquery/2.1.4/jquery.min.js
+  814  sudo yum install nginx
+  815  sudo yum install yum-utils
+  816  yum install yum-utils
+  817  apt install nginx
+  818  ss -ntlp
+  819  nano nginx.conf
+  820  cd /etc/nginx
+  821  nano nginx.conf
+  822  ll
+  823  nano nginx.conf
+  824  nginx -t
+  825  ll
+  826  cd ..
+  827  apt install apache2
+  828  apachectl -t\
+  829  apachectl -t
+  830  apt install nginx
+  831  curl
+  832  systemctl ststus nginx
+  833  systemctl status nginx
+  834  curl lockalhost
+  835  curl localhost
+  836  sudo apt update && sudo apt upgrade -y
+  837  ip a
+  838  cd /etc/netplan/
+  839  sudo nano 01-netcfg.yaml
+  840  nano 01-netcfg.yaml
+  841  sudo netplan apply
+  842  ip a  # Убедитесь, что IP-адрес статический
+  843  ping 1.1.1.1  # Проверка подключения к DNS
+  844  ping 8.8.8.8  # Проверка доступа в интернет
+  845  sudo iptables -F
+  846  sudo apt install iptables -y
+  847  sudo iptables -F
+  848  sudo iptables -A INPUT -p tcp -m multiport --dports 22,80,443 -j ACCEPT
+  849  sudo iptables -A OUTPUT -j ACCEPT
+  850  sudo iptables -A INPUT -j DROP
+  851  sudo iptables -A INPUT -s 3.4.5.6 -j DROP
+  852  sudo iptables -t nat -A PREROUTING -p tcp --dport 8090 -j REDIRECT --to-port 80
+  853  sudo iptables -A INPUT -p tcp --dport 22 -s 192.168.0.0/24 -j ACCEPT
+  854  sudo iptables-save | sudo tee /etc/iptables/rules.v4
+  855  sudo apt install iptables-persistent
+  856  sudo iptables -L -n -v
+  857  curl http://localhost
+  858  curl http://localhost:8090
+  859  nano 01-netcfg.yaml
+  860  sudo netplan apply
+  861  sudo chmod 600 /etc/netplan/01-netcfg.yaml
+  862  sudo netplan apply
+  863  nano 01-netcfg.yaml
+  864  sudo netplan apply
+  865  sudo chmod 600 /etc/netplan/01-network-manager-all.yaml
+  866  sudo chmod 600 /etc/netplan/*.yaml
+  867  sudo netplan apply
+  868  ip a
+  869  ping 1.1.1.1
+  870  ping 8.8.8.8
+  871  ping google.com
+  872  sudo iptables -L -n -v
+  873  ssh ваш_пользователь@192.168.100.9
+  874  1010
+  875  docker run hello world
+  876  docker ps
+  877  docker ps -a
+  878  docker search nginx
+  879  docker pull nginx
+  880  sudo apt install docker.io
+  881  sudo apt remove containerd
+  882  sudo apt clean
+  883  apt-cache rdepends containerd
+  884  dpkg --get-selections | grep hold
+  885  sudo dpkg --remove --force-remove-reinstreq containerd
+  886  sudo apt update
+  887  sudo apt install docker.io
+  888  sudo docker system prune -a
+  889  sudo apt remove --purge docker.io containerd.io
+  890  sudo apt clean
+  891  apt-cache rdepends containerd
+  892  sudo apt remove --purge docker.io containerd.io containerd
+  893  sudo apt autoremove
+  894  sudo apt remove --purge docker.io containerd.io containerd
+  895  sudo apt autoremove
+  896  sudo dpkg --remove --force-remove-reinstreq containerd
+  897  sudo rm -rf /var/lib/docker
+  898  sudo rm -rf /var/lib/containerd
+  899  sudo apt install     apt-transport-https     ca-certificates     curl     software-properties-common
+  900  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  901  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+  902  sudo apt update
+  903  sudo apt install docker-ce docker-ce-cli containerd.io
+  904  sudo systemctl start docker
+  905  sudo systemctl enable docker
+  906  sudo docker run hello-world
+  907  sudo apt install docker.io
+  908  sudo docker
+  909  docker run hello-world
+  910  docker ps
+  911  docker ps -a
+  912  docker images
+  913  docker search nginx
+  914  docker pull nginx
+  915  docker rm f7091cd92320
+  916  docker ps -a
+  917  docker rmi hello-world
+  918  docker ps -a
+  919  docker rm 184ae0fbebae
+  920  docker ps -a
+  921  docker rmi hello-world
+  922  docker ps -a
+  923  ip -a
+  924  docker run -d --name nginx1 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  925  docker run -d --name nginx1 -p 80:80 \ -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  926  docker run -d --name nginx1 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  927  docker ps
+  928  docker run -d --name nginx2 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  929  sudo lsof -i :80
+  930  sudo systemctl stop nginx
+  931  sudo killall nginx
+  932  docker run -d --name nginx2 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  933  docker run -d --name nginx1 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  934  docker run -d --name nginx2 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  935  docker ps -a
+  936  docker rm -f nginx1
+  937  docker rm -f nginx2
+  938  sudo systemctl stop nginx
+  939  sudo lsof -i :80
+  940  docker run -d --name nginx1 -p 80:80 -v /var/www/html:/usr/share/nginx/html --restart always nginx
+  941  docker logs nginx1
+  942  docker inspect nginx1
+  943  docker exec -ti nginx1 bash
+  944  apt install docker-compose
+  945  docker-compose up -d
+  946  apt install docker.io docker-compose
+  947  cd
+  948  ll
+  949  mkdir wordpress
+  950  cd wordpress
+  951  ll
+  952  cat > .env
+  953  cd
+  954  1010
+  955  docker ps
+  956  nano docker-compose.yml
+  957  docker-compose up -d
+  958  docker ps
+  959  ip a
+  960  docker-compos ps
+  961  # Обновите пакеты
+  962  sudo apt update
+  963  sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+  964  # Добавьте GPG-ключ
+  965  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  966  # Добавьте репозиторий Docker
+  967  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+  968  # Установите Docker
+  969  sudo apt update
+  970  sudo apt install -y docker-ce
+  971  # Установите Docker Compose
+  972  sudo apt install -y docker-compose
+  973  cd ..
+  974  # Обновите пакеты
+  975  sudo apt update
+  976  sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+  977  # Добавьте GPG-ключ
+  978  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  979  # Добавьте репозиторий Docker
+  980  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+  981  # Установите Docker
+  982  sudo apt update
+  983  sudo apt install -y docker-ce
+  984  # Установите Docker Compose
+  985  sudo apt install -y docker-compose
+  986  mkdir wordpress-project
+  987  cd wordpress-project
+  988  nano docker-compose.yml
+  989  docker-compose up -d
+  990  sudo lsof -i :8080
+  991  nano docker-compose.yml
+  992  docker-compose up -d
+  993  sudo lsof -i :8080
+  994  docker ps
+  995  docker stop dd6d7a44579e
+  996  docker ps
+  997  docker rm dd6d7a44579e
+  998  docker rm -f dd6d7a44579e
+  999  nano docker-compose.yml
+ 1000  docker-compose up -d
+ 1001  docker ps
+ 1002  nano docker-compose.yml
+ 1003  docker-compose up -d
+ 1004  docker ps
+ 1005  sudo lsof -i :8080
+ 1006  docker ps
+ 1007  docker-compose up -d
+ 1008  sudo lsof -i :8080
+ 1009  cd ..
+ 1010  # Обновите пакеты
+ 1011  sudo apt update
+ 1012  sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+ 1013  # Добавьте GPG-ключ
+ 1014  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 1015  # Добавьте репозиторий Docker
+ 1016  echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list
+ 1017  # Установите Docker
+ 1018  sudo apt update
+ 1019  sudo apt install -y docker-ce
+ 1020  # Установите Docker Compose
+ 1021  sudo apt install -y docker-compose
+ 1022  mkdir wordpress-project
+ 1023  cd wordpress-project
+ 1024  nano docker-compose.yml
+ 1025  docker-compose up -d
+ 1026  docker --version
+ 1027  docker-compose --version
+ 1028  # Остановка и удаление всех контейнеров в проекте
+ 1029  docker-compose down
+ 1030  # Очистка неиспользуемых образов и контейнеров
+ 1031  docker system prune -a --volumes
+ 1032  docker-compose build
+ 1033  nano docker-compose.yml
+ 1034  docker-compose up -d
+ 1035  docker-compose logs wordpress
+ 1036  docker network create wordpress_network
+ 1037  nano docker-compose.yml
+ 1038  docker-compose up -d
+ 1039  docker-compose logs
+ 1040  sudo apt update
+ 1041  sudo apt install -y apt-transport-https ca-certificates curl gnupg
+ 1042  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+ 1043  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ 1044  sudo apt update
+ 1045  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+ 1046  mkdir wordpress-docker
+ 1047  cd wordpress-docker
+ 1048  nano docker-compose.yml
+ 1049  docker-compose up -d
+ 1050  nano docker-compose.yml
+ 1051  docker-compose up -d
+ 1052  docker-compose down
+ 1053  docker system prune -a --volumes  #  -a включает все типы ресурсов
+ 1054  nano docker-compose.yml
+ 1055  docker-compose up -d
+ 1056  docker ps
+ 1057  sudo apt update
+ 1058  sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+ 1059  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+ 1060  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ 1061  sudo apt update
+ 1062  sudo apt install -y docker-ce docker-ce-cli containerd.io
+ 1063  sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ 1064  sudo chmod +x /usr/local/bin/docker-compose
+ 1065  sudo mkdir -p /usr/local/bin
+ 1066  sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ 1067  sudo chmod +x /usr/local/bin/docker-compose
+ 1068  docker-compose --version
+ 1069  sudo chmod 755 /usr/local/bin/docker-compose
+ 1070  docker --version
+ 1071  docker-compose --version
+ 1072  mkdir wordpress_project && cd wordpress_project
+ 1073  nano docker-compose.yml
+ 1074  sudo docker-compose up -d
+ 1075  sudo docker ps
+ 1076  ll
+ 1077  cat .env
+ 1078  cd ..
+ 1079  sudo apt update
+ 1080  sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+ 1081  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+ 1082  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ 1083  sudo apt update
+ 1084  sudo apt install -y docker-ce docker-ce-cli containerd.io
+ 1085  sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ 1086  sudo chmod +x /usr/local/bin/docker-compose
+ 1087  docker --version
+ 1088  docker-compose --version
+ 1089  mkdir wordpress_project && cd wordpress_project
+ 1090  cd wordpress_project
+ 1091  nano docker-compose.yml
+ 1092  sudo docker-compose up -d
+ 1093  sudo docker ps
+ 1094  mkdir wordpress_project_new && cd wordpress_project_new
+ 1095  nano docker-compose.yml
+ 1096  sudo docker-compose up -d
+ 1097  sudo docker ps
+ 1098  sudo docker stop mariadb_container
+ 1099  sudo docker rm mariadb_container
+ 1100  sudo docker-compose up -d
+ 1101  cd ..
+ 1102  sudo docker stop $(sudo docker ps -aq)
+ 1103  sudo docker rm $(sudo docker ps -aq)
+ 1104  sudo docker rmi $(sudo docker images -q)
+ 1105  sudo apt update
+ 1106  sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+ 1107  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+ 1108  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+ 1109  sudo apt update
+ 1110  sudo apt install -y docker-ce docker-ce-cli containerd.io
+ 1111  sudo curl -L "https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+ 1112  sudo chmod +x /usr/local/bin/docker-compose
+ 1113  docker --version
+ 1114  docker-compose --version
+ 1115  mkdir wordpress_project && cd wordpress_project
+ 1116  cd wordpress_project
+ 1117  nano docker-compose.yml
+ 1118  sudo docker-compose up -d
+ 1119  sudo docker ps
+ 1120  sudo ufw disable
+ 1121  sudo docker logs phpmyadmin_container
+ 1122  nano docker-compose.yml
+ 1123  ~/.bashrc
+ 1124  ~/.profile
+ 1125  mkdir test
+ 1126  cd test
+ 1127  touch testfile
+ 1128  type -a ls
+ 1129  type -a grep
+ 1130  type cd
+ 1131  type passwd
+ 1132  which rm
+ 1133  alias ls='ls --color=auto'
+ 1134  alias ll='ls -al'
+ 1135  alias la='ls -A'
+ 1136  mkdir testdir && touch testdir/testfile
+ 1137  echo $?
+ 1138  ls -al /home/db/testdir || mkdir -p /home/db/testdir
+ 1139  program < file
+ 1140  program > file
+ 1141  ls -al | grep file
+ 1142  grep '^test' testfile
+ 1143  ls -al | grep -P '\.[cs]+'
+ 1144  a=123\
+ 1145  a=123
+ 1146  echo $a
+ 1147  $PWD
+ 1148  $ID
+ 1149  $PATH
+ 1150  PATH=$PATH:/opt/my_progs/bin
+ 1151  cat > testscript
+ 1152  cd
+ 1153  mkdir home/vartan
+ 1154  mkdir /hom
+ 1155  mkdir /home
+ 1156  mkdir home
+ 1157  cd home
+ 1158  cd vartan
+ 1159  cd home/vartan
+ 1160  apt update; apt install nano
+ 1161  ls
+ 1162  ll
+ 1163  nano test
+ 1164  bash test
+ 1165  touch cleanup.sh
+ 1166  nano cleanup.sh
+ 1167  chmod +x cleanup.sh
+ 1168  ./cleanup.sh /path/to/directory
+ 1169  nano cleanup.sh
+ 1170  ./cleanup.sh /path/to/directory
+ 1171  ls -l
+ 1172  ls -l /home/vartan/mydir
+ 1173  ./cleanup.sh /home/vartan/mydir
+ 1174  mkdir /home/vartan/mydir
+ 1175  cd /home/vartan/mydir
+ 1176  touch test.bak
+ 1177  touch test.tmp
+ 1178  touch test.backup
+ 1179  ls -l
+ 1180  cd ..
+ 1181  ./cleanup.sh /home/vartan/mydir
+ 1182  ls -l /home/vartan/mydir
+ 1183  nano cleanup.sh
+ 1184  ./cleanup.sh /home/vartan/mydir
+ 1185  ls -l /home/vartan/mydir
+ 1186  cd /home/vartan/mydir
+ 1187  ./cleanup.sh /home/vartan/mydir
+ 1188  nano cleanup.sh
+ 1189  cd ..
+ 1190  ./cleanup.sh /home/vartan/mydir
+ 1191  mkdir /home/vartan/mydir
+ 1192  cd /home/vartan/mydir
+ 1193  touch test.bak
+ 1194  touch test.tmp
+ 1195  touch test.backup
+ 1196  ls -l
+ 1197  ./cleanup.sh /home/vartan/mydir
+ 1198  nano cleanup.sh
+ 1199  ./cleanup.sh /home/vartan/mydir
+ 1200  ls -l /home/vartan/mydir
+ 1201  rm -rf /home/vartan/mydir
+ 1202  cd ..
+ 1203  rm -rf /home/vartan/mydir
+ 1204  ls -l /home/vartan
+ 1205  mkdir /home/vartan/hwdir
+ 1206  cd /home/vartan/hwdir
+ 1207  touch test.bak
+ 1208  touch test.tmp
+ 1209  touch test.backup
+ 1210  ls -l
+ 1211  cd ..
+ 1212  ./cleanup.sh /home/vartan/hwdir
+ 1213  ls -l /home/vartan/hwdir
+ 1214  nano cleanup.sh
+ 1215  ./cleanup.sh /home/vartan/hwdir
+ 1216  ls -l /home/vartan/hwdir
+ 1217  ./cleanup.sh /home/vartan/hwdir
+ 1218  ls -l /home/vartan/hwdir
+ 1219  find /home/vartan/hwdir -type f $$ -name "*.bak" -o -name "*.tmp" -o -name "*.backup" $$
+ 1220  ./cleanup.sh /home/vartan/hwdir
+ 1221  find /home/vartan/hwdir -type f $$ -name "*.bak" -o -name "*.tmp" -o -name "*.backup" $$
+ 1222  ./cleanup.sh /home/vartan/hwdir
+ 1223  find /home/vartan/hwdir -type f  -name "*.bak" -o -name "*.tmp" -o -name "*.backup" 
+ 1224  ./cleanup.sh /home/vartan/hwdir
+ 1225  ls -l /home/vartan/hwdir
+ 1226  nano cleanup.sh
+ 1227  ./cleanup.sh /home/vartan/hwdir
+ 1228  rm -rf /home/vartan/hwdir
+ 1229  ls -l /home/vartan
+ 1230  mkdir /home/vartan/hwdir
+ 1231  cd /home/vartan/hwdir
+ 1232  touch test.bak
+ 1233  touch test.tmp
+ 1234  touch test.backup
+ 1235  cd ..
+ 1236  touch cleanup.sh
+ 1237  nano cleanup.sh
+ 1238  chmod +x cleanup.sh
+ 1239  ./cleanup.sh /home/vartan/hwdir
+ 1240  ls -l /home/vartan/hwdir
+ 1241  find /home/vartan/hwdir -type f $$ -name "*.bak" -o -name "*.tmp" -o -name "*.backup" $$
+ 1242  rm -f /home/vartan/hwdir/test.bak /home/vartan/hwdir/test.tmp /home/vartan/hwdir/test.backup
+ 1243  ls -l /home/vartan
+ 1244  rm -rf /home/vartan/cleanup.sh
+ 1245  ls -l /home/vartan
+ 1246  rm -rf /home/vartan/hwdir
+ 1247  mkdir /home/vartan/hwdir
+ 1248  cd /home/vartan/hwdir
+ 1249  touch test.bak
+ 1250  touch test.tmp
+ 1251  touch test.backup
+ 1252  cd ..
+ 1253  touch cleanup.sh
+ 1254  nano cleanup.sh
+ 1255  chmod +x cleanup.sh
+ 1256  ./cleanup.sh /home/vartan/hwdir
+ 1257  ls -l /home/vartan/hwdir
+ 1258  rm -rf /home/vartan/hwdir
+ 1259  mkdir /home/vartan/hwdir
+ 1260  cd /home/vartan/hwdir
+ 1261  touch test.bak
+ 1262  touch test.tmp
+ 1263  touch test.backup
+ 1264  cd ..
+ 1265  touch cleanup.sh
+ 1266  nano cleanup.sh
+ 1267  chmod +x cleanup.sh
+ 1268  ./cleanup.sh /home/vartan/hwdir
+ 1269  ls -l /home/vartan/hwdir
+ 1270  find /home/vartan/hwdir -type f $$ -name "*.bak" -o -name "*.tmp" -o -name "*.backup" $$
+ 1271  nano cleanup.sh
+ 1272  chmod +x cleanup.sh
+ 1273  ./cleanup.sh /home/vartan/hwdir
+ 1274  rm -rf /home/vartan/hwdir
+ 1275  mkdir hw8
+ 1276  cd hw8
+ 1277  touch test.bak
+ 1278  touch test.tmp
+ 1279  touch test.backup
+ 1280  cd ..
+ 1281  touch cleanup.sh
+ 1282  nano cleanup.sh
+ 1283  chmod +x cleanup.sh
+ 1284  ./cleanup.sh /home/vartan/hwdir
+ 1285  ./cleanup.sh hw8
+ 1286  ls -l hw8
+ 1287  find ./hw8 -type f $$ -name "*.bak" -o -name "*.tmp" -o -name "*.backup" $$
+ 1288  find ./hw8 -type f -name "*.bak" -o -name "*.tmp" -o -name "*.backup"
+ 1289  ./cleanup.sh hw8
+ 1290  nano cleanup.sh
+ 1291  ./cleanup.sh /home/vartan/hw8
+ 1292  ls -l /home/vartan/hw8
+ 1293  ls -l
+ 1294  ls -l hw8
+ 1295  nano cleanup.sh
+ 1296  touch test.bak
+ 1297  touch test.tmp
+ 1298  touch test.backup
+ 1299  ls -l hw8
+ 1300  mkdir hw8
+ 1301  cd hw8
+ 1302  touch test.bak
+ 1303  touch test.tmp
+ 1304  touch test.backup
+ 1305  ls -l
+ 1306  cd ..
+ 1307  nano cleanup.sh
+ 1308  chmod +x cleanup.sh
+ 1309  nano ownersort.sh
+ 1310  chmod +x ownersort.sh
+ 1311  ./cleanup.sh /hw8
+ 1312  ./cleanup.sh hw8
+ 1313  ./ownersort.sh hw8
+ 1314  file cleanup.sh
+ 1315  file ownersort.sh
+ 1316  ./cleanup.sh /home/vartan/hw8
+ 1317  ./cleanup.sh ./hw8
+ 1318  ls -l ./hw8
+ 1319  nano cleanup.sh
+ 1320  chmod +x cleanup.sh
+ 1321  ls -l ./hw8
+ 1322  ./cleanup.sh /home/vartan/hw8
+ 1323  nano cleanup.sh
+ 1324  ./cleanup.sh ./hw8
+ 1325  ls -l ./hw8
+ 1326  file ownersort.sh
+ 1327  nano ownersort.sh
+ 1328  nano cleanup.sh
+ 1329  nano ownersort.sh
+ 1330  ls
+ 1331  ll
+ 1332  cd hw8/
+ 1333  touch test.bak
+ 1334  touch test.tmp
+ 1335  touch test.backup
+ 1336  ll
+ 1337  cd ..
+ 1338  chmod +x cleanup.sh ownersort.sh
+ 1339  ./cleanup.sh hw8
+ 1340  nano cleanup.sh
+ 1341  chmod +x cleanup.sh ownersort.sh
+ 1342  ./cleanup.sh hw8
+ 1343  nano cleanup.sh
+ 1344  ./cleanup.sh hw8
+ 1345  nano cleanup.sh
+ 1346  ./cleanup.sh hw8
+ 1347  cd hw8/
+ 1348  ll
+ 1349  cd ..
+ 1350  chmod +x cleanup.sh ownersort.sh
+ 1351  ./cleanup.sh hw8
+ 1352  cd hw8/
+ 1353  ll
+ 1354  cd ..
+ 1355  nano cleanup.sh
+ 1356  cd hw8/
+ 1357  touch test.bak touch test.tmp touch test.backup
+ 1358  ll
+ 1359  chmod +x cleanup.sh ownersort.sh
+ 1360  cd ..
+ 1361  chmod +x cleanup.sh ownersort.sh
+ 1362  ./cleanup.sh hw8
+ 1363  cd hw8/
+ 1364  ll
+ 1365  cd ..
+ 1366  nano cleanup.sh
+ 1367  chmod +x cleanup.sh
+ 1368  ./cleanup.sh hw8
+ 1369  nano cleanup.sh
+ 1370  ./cleanup.sh hw8
+ 1371  nano cleanup.sh
+ 1372  ./cleanup.sh hw8
+ 1373  nano cleanup.sh
+ 1374  ./cleanup.sh hw8
+ 1375  cd hw8/
+ 1376  ll
+ 1377  touch test.bak
+ 1378  touch test.tmp
+ 1379  touch test.backup
+ 1380  chmod +x cleanup.sh
+ 1381  cd ..
+ 1382  chmod +x cleanup.sh
+ 1383  ./cleanup.sh hw8
+ 1384  ll
+ 1385  cd hw8/
+ 1386  nano cleanup.sh
+ 1387  cd ..
+ 1388  nano cleanup.sh
+ 1389  cd hw8/
+ 1390  ll
+ 1391  cd ..
+ 1392  chmod +x cleanup.sh
+ 1393  ./cleanup.sh hw8
+ 1394  cd hw8/
+ 1395  ll
+ 1396  cd ..
+ 1397  nano cleanup.sh
+ 1398  cd hw8/
+ 1399  touch test.bak
+ 1400  touch test.tmp
+ 1401  touch test.backup
+ 1402  ll
+ 1403  cd ..
+ 1404  chmod +x cleanup.sh
+ 1405  ./cleanup.sh hw8
+ 1406  cd hw8/
+ 1407  ll
+ 1408  cd ..
+ 1409  nano cleanup.sh
+ 1410  ./ownersort.sh hw8
+ 1411  nano ownersort.sh
+ 1412  file cleanup.sh
+ 1413  file ownersort.sh
+ 1414  nano cleanup.sh
+ 1415  nano ownersort.sh
+ 1416  git clone https://github.com/VartanShirinyan/animal_accounting.git
+ 1417  cd animal_accounting
+ 1418  cat > домашние_животные.txt
+ 1419  cat > вьючные_животные.txt
+ 1420  cat домашние_животные.txt вьючные_животные.txt > Друзья_человека.txt
+ 1421  cat Друзья_человека.txt
+ 1422  cat > домашние_животные.txt
+ 1423  cat > вьючные_животные.txt
+ 1424  cat домашние_животные.txt вьючные_животные.txt > Друзья_человека.txt
+ 1425  cat Друзья_человека.txt
+ 1426  mv Друзья_человека.txt Друзья_человека.txt
+ 1427  cat Друзья_человека.txt
+ 1428  cat > Друзья_человека.txt
+ 1429  cat Друзья_человека.txt
+ 1430  cat > Друзья_человека.txt
+ 1431  cat Друзья_человека.txt
+ 1432  mkdir питомник
+ 1433  mv Друзья_человека.txt питомник/
+ 1434  sudo apt update
+ 1435  sudo apt install mysql-server
+ 1436  sudo service mysql start
+ 1437  wget https://dev.mysql.com/get/mysql-apt-config_0.8.17-1_all.deb
+ 1438  sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
+ 1439  sudo apt update
+ 1440  sudo apt install mysql-client
+ 1441  sudo apt-get update
+ 1442  sudo apt-get install mysql-server
+ 1443  sudo wget -qO - https://repo.mysql.com/RPM-GPG-KEY-mysql | sudo apt-key add -
+ 1444  apt-key list
+ 1445  sudo apt update
+ 1446  sudo apt install mysql-client
+ 1447  mysql -u root -p
+ 1448  sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
+ 1449  sudo dpkg -r имя_пакета
+ 1450  sudo dpkg -i mysql-apt-config_0.8.17-1_all.deb
+ 1451  sudo dpkg -r mysql-apt-config
+ 1452  history > история_команд.txt
